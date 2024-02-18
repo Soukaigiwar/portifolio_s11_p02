@@ -23,12 +23,12 @@ export function SignUp() {
                 navigate("/")
             })
             .catch(error => {
-                alert("Não foi possível cadastrar. Verifique se preecheu tudo corretamente e se a senha tem pelo menos 8 caracteres entre letras, números e letras maiúsculas.")
-                // if (error.response) {
-                //     console.log(error)
-                //     alert(error.response.data.message)
-                // } else {
-                // }
+                console.log(error.response.status);
+                if (error.response.status === 401) {
+                    console.log("caiu no erro")
+                    alert("Password precisa ter:\n- letras e números\n- letras maiúsculas e minúsculas\n- símbolos")
+                } else {
+                }
             })
     }
 
